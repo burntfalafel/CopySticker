@@ -14,13 +14,17 @@
 
 int Widget::loadStickers()
 {
-  Json::Value root;
-  std::ifstream config_jsn("copystickersettings.json", std::ifstream::binary);
-  config_jsn >> root;
-  std::string fileDir = root.get("location","/home/").asString();
-  std::string formatTypes = root.get("formats","*.jpg *.jpeg").asString();
-  config_jsn.close();
-  std::string typeMessage = "Image/Video Files (" + formatTypes + " )";
+ std::ifstream config_jsn("copystickersettings.json", std::ifstream::binary);
+ if(!config_jsn.good())
+     config_jsn.open("/etc/CopySticker/copystickersettings.json", std::ifstream::binary);
+ //if(!config_jsn.good())
+ //    return 1;
+ Json::Value root;
+ config_jsn >> root;
+ std::string fileDir = root.get("location", "/home/").asString();
+ std::string formatTypes = root.get("formats", "*.png *.jpg *.jpeg *.bmp *.mp4 *.gif").asString();
+ config_jsn.close();
+ std::string typeMessage = "Image/Video Files (" + formatTypes + " )";
 
  QFileDialog *dialog = new PreviewFileDialog(this,
      tr("Open sticker"), fileDir.c_str(), tr(typeMessage.c_str()));
