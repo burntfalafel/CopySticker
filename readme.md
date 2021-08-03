@@ -14,3 +14,6 @@ Download the binary from the releases section!
 qmake
 make
 ```
+
+### Screenshots
+![Screenshot of the QT app](./pics/screenshot.png)

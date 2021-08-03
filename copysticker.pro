@@ -5,13 +5,15 @@ QT = core gui
 
 LIBS += -L/usr/include/jsoncpp -ljsoncpp
 
+INCLUDEPATH += $$PWD/include
+
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 SOURCES += \
-    main.cpp \
-    preview_file_dialog.cpp \
-    window.cpp
+    src/main.cpp \
+    src/preview_file_dialog.cpp \
+    src/window.cpp
 
 HEADERS += \
-    preview_file_dialog.h \
-    window.h
+    include/preview_file_dialog.h \
+    include/window.h
