@@ -1,0 +1,7 @@
+{
+	//which location to look stickers for
+	"location" : "/home/runner/Downloads",
+	
+	// formats supported - has to follow this format 
+	"formats"  : "*.png *.jpg *.jpeg *.bmp *.mp4 *.gif"
+}

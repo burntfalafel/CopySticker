@@ -17,7 +17,7 @@ public:
     explicit Widget(QWidget *parent = nullptr);
 //    ~Widget();
 private slots:
-    void loadStickers();
+    int loadStickers();
 };
 
 #endif // WINDOW_H

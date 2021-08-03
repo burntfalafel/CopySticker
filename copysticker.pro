@@ -1,7 +1,9 @@
 TEMPLATE = app
-TARGET = helloworldqmake
+TARGET = copystickerqmake
 
 QT = core gui
+
+LIBS += -L/usr/include/jsoncpp -ljsoncpp
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
