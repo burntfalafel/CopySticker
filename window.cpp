@@ -15,7 +15,7 @@
 int Widget::loadStickers()
 {
   Json::Value root;
-  std::ifstream config_jsn("settings.json", std::ifstream::binary);
+  std::ifstream config_jsn("copystickersettings.json", std::ifstream::binary);
   config_jsn >> root;
   std::string fileDir = root.get("location","/home/").asString();
   std::string formatTypes = root.get("formats","*.jpg *.jpeg").asString();

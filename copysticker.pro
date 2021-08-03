@@ -1,5 +1,5 @@
 TEMPLATE = app
-TARGET = copystickerqmake
+TARGET = CopySticker
 
 QT = core gui
 

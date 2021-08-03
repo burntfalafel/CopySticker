@@ -2,7 +2,7 @@
 
 Copies Stickers to your clipboard. Works fine on any messaging app Whatsapp, Facebook Messenger, Discord, etc. 
 
-Reads the configurations from `settings.json`. A sample has been provided [here](https://github.com/burntfalafel/CopySticker/blob/master/settings.json).
+Reads the configurations from `copystickersettings.json`. A sample has been provided [here](https://github.com/burntfalafel/CopySticker/blob/master/copystickersettings.json).
 Download the binary from the releases section! 
 
 ### Requirements
