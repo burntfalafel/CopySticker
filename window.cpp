@@ -5,6 +5,7 @@
 #include <QMimeData>
 #include <QApplication>
 #include <QImage>
+#include <QMainWindow>
 #include <fstream>
 #include <jsoncpp/json/json.h>
 
@@ -28,9 +29,14 @@ int Widget::loadStickers()
  QStringList fileNames;
  if (dialog->exec())
      fileNames = dialog->selectedFiles();
+ else
+{
+     dialog->close();
+     return 1;
+ }
  QString fileName = fileNames.takeFirst();
 
- if (!fileName.isEmpty())
+ if (!fileName.isEmpty() && !fileName.isNull())
  {
      QImage image;
      bool status = image.load(fileName, nullptr);
@@ -48,5 +54,7 @@ int Widget::loadStickers()
 Widget::Widget(QWidget *parent) : //constructor
     QWidget(parent)
 {
-    loadStickers();
+    int status = 0;
+    while(!status)
+        status = loadStickers();
 }

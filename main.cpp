@@ -5,8 +5,10 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+    a.setQuitOnLastWindowClosed(true);
     Widget w;
     w.show();
 
-    return a.exec();
+//  don't need app event loop
+//  return a.exec();
 }
