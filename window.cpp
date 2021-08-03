@@ -12,6 +12,8 @@
 #include <sys/types.h>
 #include <pwd.h>
 
+#include "preview_file_dialog.h"
+
 void Widget::loadStickers()
 {
  // Set size of the window
@@ -21,9 +23,20 @@ void Widget::loadStickers()
  struct passwd *pw = getpwuid(getuid());
  const char *homedir = pw->pw_dir;
 
- QString fileName = QFileDialog::getOpenFileName(this,
+// QFileDialog dialog(this);
+ QFileDialog *dialog = new PreviewFileDialog(this,
      tr("Open sticker"), homedir, tr("Image/Video Files (*.png *.jpg *.jpeg *.bmp *.mp4 *.gif )"));
- // should display image
+// QString fileName = QFileDialog::getOpenFileName(this,
+//     tr("Open sticker"), homedir, tr("Image/Video Files (*.png *.jpg *.jpeg *.bmp *.mp4 *.gif )"));
+ dialog->setFileMode(QFileDialog::AnyFile);
+ dialog->setNameFilter(tr("Image/Video Files (*.png *.jpg *.jpeg *.bmp *.mp4 *.gif )"));
+ dialog->setViewMode(QFileDialog::Detail);
+ dialog->setDirectory(homedir);
+ QStringList fileNames;
+ if (dialog->exec())
+     fileNames = dialog->selectedFiles();
+ QString fileName = fileNames.takeFirst();
+
  if (!fileName.isEmpty())
  {
      qDebug().nospace() << "abc" << qPrintable(fileName) << "def";
@@ -33,8 +46,11 @@ void Widget::loadStickers()
      QMimeData *data = new QMimeData;
      data->setImageData(image);
      clipboard->setMimeData(data, QClipboard::Clipboard);
-
- } // no else
+ }
+ else
+ {
+     return;
+ }
 
  // Create and position the button
 // m_button = new QPushButton("Hello World", this);
