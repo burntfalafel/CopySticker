@@ -6,7 +6,7 @@ Reads the configurations from `copystickersettings.json`. A sample has been prov
 Download the binary from the releases section! 
 ### Usage
 
-This app runs in a loop. You can select the sticker you want and click `OK`. It is then copied to your clipboard. Once you have copy-pasted all the stickers you wanted and you are done chatting, simply click on `Cancel`. The app then closes. Or simply kill it - your choice. 
+This app runs in a loop. You can select the sticker you want and click `Open`. It is then copied to your clipboard. Once you have copy-pasted all the stickers you wanted and you are done chatting, simply click on `Cancel`. The app then closes. Or simply kill it - your choice. 
 
 ### Build requirements
 - [jsoncpp](https://github.com/open-source-parsers/jsoncpp)
